@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Preloader({ isLoading }) {
+export default function Preloader({ isLoading, progress }) {
 
     return (
         <AnimatePresence mode="wait">
@@ -23,12 +22,12 @@ export default function Preloader({ isLoading }) {
                         >
                             Santap.in
                         </motion.h1>
-                        <div className="mt-4 h-1 w-32 bg-gray-800 rounded overflow-hidden">
+                        <div className="mt-4 h-1 w-64 bg-gray-800 rounded overflow-hidden relative">
                             <motion.div
                                 className="h-full bg-white"
                                 initial={{ width: 0 }}
-                                animate={{ width: "100%" }}
-                                transition={{ duration: 1.8, ease: "easeInOut" }}
+                                animate={{ width: `${progress * 100}%` }}
+                                transition={{ duration: 0.1, ease: "linear" }}
                             />
                         </div>
                     </div>

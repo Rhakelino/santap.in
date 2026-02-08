@@ -23,9 +23,9 @@ export default function CTA() {
                 <h2 className="text-6xl md:text-9xl font-black mb-8 tracking-tighter uppercase">
                     Taste the<br />Magic
                 </h2>
-                <button className="px-12 py-6 bg-white text-black text-2xl font-bold rounded-full hover:scale-105 transition-transform duration-300">
+                <a href="https://www.instagram.com/_santap.in/" target="_blank" className="px-12 py-6 bg-white text-black text-2xl font-bold rounded-full hover:scale-105 transition-transform duration-300">
                     Order Now
-                </button>
+                </a>
             </div>
         </section>
     )

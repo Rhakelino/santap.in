@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const frameCount = 192;
 
-export default function SequenceScroll({ onLoad }) {
+export default function SequenceScroll({ onLoad, onProgress }) {
     const containerRef = useRef(null);
     const canvasRef = useRef(null);
     const [images, setImages] = useState([]);
@@ -131,7 +131,7 @@ function TextOverlay({ scrollYProgress }) {
             {/* Title */}
             <motion.div style={{ opacity: opacity1 }} className="absolute text-center">
                 <h1 className="text-6xl md:text-9xl font-bold tracking-tighter uppercase font-outfit">Santap.in</h1>
-                <p className="text-xl md:text-2xl mt-4 tracking-widest uppercase">Cookies, Brownies & More</p>
+                <p className="text-xl md:text-2xl mt-4 tracking-widest uppercase">Cookies, Brownies & Drinks</p>
             </motion.div>
 
             {/* Slogan Left */}

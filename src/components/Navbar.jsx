@@ -119,8 +119,8 @@ export default function Navbar() {
                                 <p>Twitter</p>
                             </div>
                             <div className="text-right">
-                                <p>hello@santap.in</p>
-                                <p>Jakarta, Indonesia</p>
+                                <p>santap.in</p>
+                                <p>Padang, Indonesia</p>
                             </div>
                         </div>
 

@@ -8,9 +8,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex gap-6 uppercase text-sm font-medium">
-                    <a href="#" className="hover:text-white transition-colors">Instagram</a>
-                    <a href="#" className="hover:text-white transition-colors">Twitter</a>
-                    <a href="#" className="hover:text-white transition-colors">Facebook</a>
+                    <a href="https://www.instagram.com/_santap.in/" className="hover:text-white transition-colors">Instagram</a>
                 </div>
             </div>
         </footer>
