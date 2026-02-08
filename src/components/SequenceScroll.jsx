@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const frameCount = 192;
 
-export default function SequenceScroll() {
+export default function SequenceScroll({ onLoad }) {
     const containerRef = useRef(null);
     const canvasRef = useRef(null);
     const [images, setImages] = useState([]);
@@ -21,22 +21,27 @@ export default function SequenceScroll() {
 
     useEffect(() => {
         const loadImages = async () => {
-            const loadedImages = [];
+            const promises = [];
             for (let i = 1; i <= frameCount; i++) {
                 const img = new Image();
                 img.src = `/cookies/ezgif-frame-${i.toString().padStart(3, "0")}.jpg`;
-                await new Promise((resolve) => {
-                    img.onload = resolve;
-                    img.onerror = resolve; // Continue even if error
+                const promise = new Promise((resolve) => {
+                    img.onload = () => resolve(img);
+                    img.onerror = () => resolve(null); // Return null on error
                 });
-                loadedImages.push(img);
+                promises.push(promise);
             }
-            setImages(loadedImages);
+
+            const results = await Promise.all(promises);
+            const validImages = results.filter(img => img !== null);
+
+            setImages(validImages);
             setIsLoaded(true);
+            if (onLoad) onLoad();
         };
 
         loadImages();
-    }, []);
+    }, [onLoad]);
 
     useEffect(() => {
         if (!isLoaded || !canvasRef.current) return;

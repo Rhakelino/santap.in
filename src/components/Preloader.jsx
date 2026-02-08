@@ -3,17 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function Preloader() {
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        // Simulate loading time or listen to window load
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000); // 2 seconds for demo
-
-        return () => clearTimeout(timer);
-    }, []);
+export default function Preloader({ isLoading }) {
 
     return (
         <AnimatePresence mode="wait">
